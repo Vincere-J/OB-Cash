@@ -24,7 +24,7 @@
       time: "About 3 minutes",
       why: "Your Discord invite lives inside Whop, the same portal where you signed your license agreement. The welcome video there walks you to it. Discord is where Vincere posts announcements, daily updates, and payouts, and it is the fastest way to reach the team.",
       list: [
-        "Open your Whop portal using the button below and play the short welcome video.",
+        "Open the Vincere community in Whop using the button below and play the short welcome video.",
         "In Whop, click the Discord access link. The welcome video points you right to it.",
         "Already use Discord? Sign in and accept the invite. New to Discord? Click “claim access” and create a free account when prompted. Any username is fine.",
         "Once you are in, you will see the Vincere Trading community. The channels to watch are Announcements, Daily Updates, and Payouts.",
@@ -32,13 +32,28 @@
       ],
       note: "You do not install the license key or files yourself. Your onboarder applies them for you during onboarding. You just need to know where they live in Whop. If you bought the VPS, these come preloaded.",
       video: "https://www.loom.com/share/cab18399b2864051aa2d845f36386c16",
-      ctaLabel: "Open my Whop portal",
-      ctaUrl: "https://whop.com/joined/vincere-trading/"   // NEEDS YOUR LINK (your Whop portal)
+      ctaLabel: "Open the Vincere community in Whop",
+      ctaUrl: "https://whop.com/joined/vincere-trading/vincere-portfolios-community-Tliv8YBcLbsWMd/app/"
+    },
+    {
+      title: "Set up your QuantVPS",
+      time: "About 10 minutes",
+      why: "Your VPS is an always-on computer in the cloud that runs your algorithms 24/5, even when your own computer is off. It arrives with NinjaTrader preloaded.",
+      list: [
+        "Go to quantvps.com/vincere using the button below.",
+        "Most people choose the $59/month plan. If you want a speed bump, the $99/month plan is a good option.",
+        "Complete your purchase. Your VPS arrives with NinjaTrader already installed and your algo files preloaded. There is nothing to install yourself.",
+        "You will create your NinjaTrader login in the next step. Bring that username and password to your onboarding call, where your onboarder logs into the VPS with you and finishes the setup."
+      ],
+      note: "At checkout, use promo code VINCERE for 60% off your first month.",
+      video: "",
+      ctaLabel: "Get my QuantVPS",
+      ctaUrl: "https://www.quantvps.com/vincere"
     },
     {
       title: "Create your NinjaTrader account",
       time: "About 5 minutes",
-      why: "This is just a free login. You are NOT putting in money or applying for a cash account yet. Your onboarder will need this username and password during your VPS setup.",
+      why: "This is just a free login. You are NOT putting in money or applying for a cash account yet. Your onboarder will need this username and password to finish your VPS setup.",
       list: [
         "Go to ninjatrader.com and click “Open Account” at the top right.",
         "Sign up with your regular email. Do not use the Google or Apple sign-in buttons.",
@@ -63,7 +78,7 @@
         "Log in to NinjaTrader. On your dashboard, click “Start application” (sometimes shown as “Create your application”).",
         "Choose your account type. Most clients select Individual. Business entity and IRA accounts require extra documents.",
         "Work through each section: personal details, financial details, experience and affiliations, and additional users.",
-        "Answer every question truthfully and accurately, including the trading-experience questions.",
+        "Answer every question on the form.",
         "When asked if you are a professional trader, select Non-professional, unless you are a registered professional. If you are, you will know.",
         "When asked whether anyone else manages or has an interest in the account, the answer is No. You control your own account.",
         "Review the summary screen, correct anything that is wrong, then click Save and Continue.",
@@ -90,21 +105,6 @@
       video: "https://www.loom.com/share/f3f0bea049af496cb1cd214be96f3f25",
       ctaLabel: "Log in to NinjaTrader",
       ctaUrl: "https://ninjatrader.com/"
-    },
-    {
-      title: "Set up your QuantVPS",
-      time: "About 10 minutes",
-      why: "Your VPS is an always-on computer in the cloud that runs your algorithms 24/5, even when your own computer is off. It arrives with NinjaTrader preloaded.",
-      list: [
-        "Go to quantvps.com/vincere using the button below.",
-        "Choose the $59/month plan. It is the right fit for running the Vincere algorithms.",
-        "Complete your purchase. Your VPS arrives with NinjaTrader already installed and your algo files preloaded. There is nothing to install yourself.",
-        "Bring your NinjaTrader username and password (from Step 2) to your onboarding call. Your onboarder logs into the VPS with you and finishes the setup."
-      ],
-      note: "There is no walkthrough video for this step yet. If anything looks unclear, your onboarder will help you on the call.",
-      video: "",
-      ctaLabel: "Get my QuantVPS",
-      ctaUrl: "https://www.quantvps.com/vincere"
     }
   ];
 
@@ -141,7 +141,7 @@
   h1{font-family:var(--display); font-weight:800; font-size:clamp(2.3rem,7vw,3.7rem); line-height:1.05; letter-spacing:-.02em; margin:0 0 18px; color:var(--ink);}
   h1 .light{color:var(--indigo-700);}
   .lede{font-size:clamp(1.05rem,2.4vw,1.22rem); color:var(--muted); margin:0; max-width:50ch;}
-  .switch{margin:14px 0 0; font-size:1rem;}
+  .switch{margin:18px 0 0; font-size:2.5rem; line-height:1.2;}
   .switch a{color:var(--indigo-700); font-weight:600; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--indigo-300);}
   .switch a:hover{color:var(--indigo-900); text-decoration-color:var(--indigo-500);}
 
@@ -283,8 +283,8 @@
     const items = s.list.map(t=>"<li>"+esc(t)+"</li>").join("");
     const noteHtml = s.note ? '<div class="note">'+esc(s.note)+'</div>' : "";
     const watchHtml = s.video
-      ? '<a class="watch" href="'+s.video+'" target="_blank" rel="noopener">'+ICON_PLAY+' Watch the walkthrough</a>'
-      : '<span class="watch none">'+ICON_PLAY+' Walkthrough video coming soon</span>';
+      ? '<div><a class="watch" href="'+s.video+'" target="_blank" rel="noopener">'+ICON_PLAY+' Watch the walkthrough</a></div>'
+      : '';
     li.innerHTML =
       '<div class="node" aria-hidden="true"><span class="node-num">'+(i+1)+'</span></div>'+
       '<div class="card">'+
@@ -293,7 +293,7 @@
         '<p class="why">'+esc(s.why)+'</p>'+
         '<ol class="todo">'+items+'</ol>'+
         noteHtml+
-        '<div>'+watchHtml+'</div>'+
+        watchHtml+
         '<div class="actions">'+
           '<a class="btn btn-go" href="'+s.ctaUrl+'" target="_blank" rel="noopener">'+esc(s.ctaLabel)+' '+ICON_EXT+'</a>'+
           '<button class="btn btn-done" type="button" data-i="'+i+'"></button>'+

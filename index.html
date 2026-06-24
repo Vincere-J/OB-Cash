@@ -12,7 +12,7 @@
 <!-- ============================================================= -->
 <!--  EDIT ONLY THIS BLOCK.  Paste your video links + button URLs.   -->
 <!--  - "video" accepts a YouTube, Vimeo, or Loom link. Leave ""     -->
-<!--    to show a "video coming soon" panel.                         -->
+<!--    to show no video for that step.                             -->
 <!--  - "ctaUrl" is the button that opens the service.               -->
 <!--  Lines marked  NEEDS YOUR LINK  must be replaced before launch. -->
 <!-- ============================================================= -->
@@ -22,9 +22,17 @@
       title: "Join the Vincere Discord",
       why: "Your Discord invite is in the welcome video inside Whop, alongside your license key. Discord is where Vincere posts announcements and where you reach the team fastest, so do this one first.",
       video: "https://www.loom.com/share/cab18399b2864051aa2d845f36386c16",
-      ctaLabel: "Open Whop to get your invite",
-      ctaUrl: "https://whop.com/joined/vincere-trading/", // NEEDS YOUR LINK (your Whop portal)
+      ctaLabel: "Open the Vincere community in Whop",
+      ctaUrl: "https://whop.com/joined/vincere-trading/vincere-portfolios-community-Tliv8YBcLbsWMd/app/",
       time: "About 3 minutes"
+    },
+    {
+      title: "Set up your QuantVPS",
+      why: "Your VPS is an always-on computer that runs your algorithms 24/5, even when your own computer is off. Most people choose the $59/month plan. If you want a speed bump, the $99/month plan is a good option. Use promo code VINCERE for 60% off your first month. Your VPS arrives with NinjaTrader preloaded.",
+      video: "",                                   // no video for this step by design
+      ctaLabel: "Get my QuantVPS",
+      ctaUrl: "https://www.quantvps.com/vincere",  // confirmed
+      time: "About 10 minutes"
     },
     {
       title: "Create your NinjaTrader account",
@@ -36,7 +44,7 @@
     },
     {
       title: "Apply for a live account",
-      why: "Inside NinjaTrader, you will apply for a live account, the account your algorithms will use. Answer every question truthfully.",
+      why: "Inside NinjaTrader, you will apply for a live account, the account your algorithms will use. Answer every question on the form.",
       video: "https://www.loom.com/share/e06d8d5fce3b4eeeabe59b05d7329ec4",
       ctaLabel: "Log in to NinjaTrader to apply",
       ctaUrl: "https://ninjatrader.com/",          // application is completed inside NinjaTrader after login
@@ -49,14 +57,6 @@
       ctaLabel: "Log in to NinjaTrader",
       ctaUrl: "https://ninjatrader.com/",          // market-data subscription is done inside NinjaTrader
       time: "About 5 minutes"
-    },
-    {
-      title: "Set up your QuantVPS",
-      why: "Your VPS is an always-on computer that runs your algorithms 24/5, even when your own computer is off. Choose the $59/month plan. It arrives with NinjaTrader preloaded.",
-      video: "",                                   // no walkthrough video yet, paste a QuantVPS link here when you have one
-      ctaLabel: "Get my QuantVPS",
-      ctaUrl: "https://www.quantvps.com/vincere",  // confirmed
-      time: "About 10 minutes"
     }
   ];
 
@@ -99,7 +99,7 @@
     line-height:1.05; letter-spacing:-.02em; margin:0 0 18px; color:var(--ink);}
   h1 .light{color:var(--indigo-700);}
   .lede{font-size:clamp(1.05rem,2.4vw,1.22rem); color:var(--muted); margin:0; max-width:48ch;}
-  .switch{margin:14px 0 0; font-size:1rem;}
+  .switch{margin:18px 0 0; font-size:2.5rem; line-height:1.2;}
   .switch a{color:var(--indigo-700); font-weight:600; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--indigo-300);}
   .switch a:hover{color:var(--indigo-900); text-decoration-color:var(--indigo-500);}
 
@@ -250,7 +250,7 @@
     const embed = embedFor(s.video);
     const videoHtml = embed
       ? '<div class="video"><iframe src="'+embed+'" title="'+s.title+' walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>'
-      : '<div class="video"><div class="video-soon">'+ICON_PLAY+'<span>Walkthrough video coming soon</span></div></div>';
+      : '';
     li.innerHTML =
       '<div class="node" aria-hidden="true"><span class="node-num">'+(i+1)+'</span></div>'+
       '<div class="card">'+
